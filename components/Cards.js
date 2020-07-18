@@ -48,14 +48,6 @@ axios.get('https://lambda-times-backend.herokuapp.com/articles')
         ) 
 });
 
-
-
-    for(let keys in articles){
-        // console.log('aaaa');
-        // console.log(articles[keys]);
-        const articleArr = articles[key];
-        articleArr.forEach(item => cardMaker(item))
-    }
 }
 )   
 .catch(error => {
