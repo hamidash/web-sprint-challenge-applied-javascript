@@ -23,8 +23,11 @@
 
 import axios from 'axios';
 
+const testObj = {autorPhoto: "test Photo", authorName: "Test Name", headline: "Test Headline"};
+
 const cardContainer = document.querySelector('.cards-container');
-console.log(cardContainer);
+//console.log(cardContainer);
+//cardContainer.appendChild(cardMaker(testObj))
 
 axios.get('https://lambda-times-backend.herokuapp.com/articles')
 
@@ -36,12 +39,12 @@ axios.get('https://lambda-times-backend.herokuapp.com/articles')
 
     Object.values(articles).forEach(item => 
         {
-        console.log(item);
+        //console.log(item);
 
         item.forEach(article=> {
             console.log(article);
-            //cardMaker(article)})
-            //cardContainer.appendChild(cardMaker(card));
+            
+            cardMaker(article);
         }
         ) 
 });
@@ -79,7 +82,7 @@ function cardMaker(obj) {
 
     img.src = obj.authorPhoto;
     headline.textContent = obj.headline;
-    authorName.textContent = `By ${obe.authorName}`
+    authorName.textContent = `By ${obj.authorName}`
 
     card.addEventListener('click', ()=> console.log(`Headline is: ${obj.headline}`));
 
@@ -89,7 +92,8 @@ function cardMaker(obj) {
     author.appendChild(imgContainer);
     imgContainer.appendChild(img);
     card.appendChild(authorName);
-    //cardContainer.appendChild(card);
+
+    cardContainer.appendChild(card);
 
     
     return card;
