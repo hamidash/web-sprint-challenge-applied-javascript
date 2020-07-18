@@ -43,7 +43,6 @@ axios.get('https://lambda-times-backend.herokuapp.com/articles')
 
         item.forEach(article=> {
             console.log(article);
-            
             cardMaker(article);
         }
         ) 
